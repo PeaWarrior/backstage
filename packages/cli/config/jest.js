@@ -16,9 +16,7 @@
 
 const fs = require('fs-extra');
 const path = require('path');
-const crypto = require('crypto');
 const glob = require('util').promisify(require('glob'));
-const { version } = require('../package.json');
 
 const envOptions = {
   nextTests: Boolean(process.env.BACKSTAGE_NEXT_TESTS),
@@ -194,7 +192,7 @@ async function getProjectConfig(targetPath, displayName) {
     // A bit more opinionated
     testMatch: ['**/*.test.{js,jsx,ts,tsx,mjs,cjs}'],
 
-    moduleLoader: envOptions.nextTests
+    runtime: envOptions.nextTests
       ? require.resolve('./jestCachingModuleLoader')
       : undefined,
 
@@ -207,21 +205,7 @@ async function getProjectConfig(targetPath, displayName) {
     options.setupFilesAfterEnv = ['<rootDir>/setupTests.ts'];
   }
 
-  const config = Object.assign(options, ...pkgJsonConfigs);
-
-  // The config name is a cache key that lets us share the jest cache across projects.
-  // If no explicit name was configured, generated one based on the configuration.
-  if (!config.name) {
-    const configHash = crypto
-      .createHash('md5')
-      .update(version)
-      .update(Buffer.alloc(1))
-      .update(JSON.stringify(config.transform))
-      .digest('hex');
-    config.name = `backstage_cli_${configHash}`;
-  }
-
-  return config;
+  return Object.assign(options, ...pkgJsonConfigs);
 }
 
 // This loads the root jest config, which in turn will either refer to a single
