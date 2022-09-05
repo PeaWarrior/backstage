@@ -109,7 +109,7 @@ describe('extensions', () => {
       render(<BrokenComponent />);
     });
     screen.getByText('Error in my-plugin');
-    expect(errors[0]).toMatch('Test error');
+    expect(errors[0]).toMatchObject({ detail: new Error('Test error') });
   });
 
   it('should wrap extended component with analytics context', async () => {
