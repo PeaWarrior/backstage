@@ -27,6 +27,14 @@ export interface Logger {
 /**
  * @public
  */
+export const rootLoggerServiceRef = createServiceRef<Logger>({
+  id: 'core.logger',
+  scope: 'root',
+});
+
+/**
+ * @public
+ */
 export const loggerServiceRef = createServiceRef<Logger>({
   id: 'core.logger',
 });

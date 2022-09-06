@@ -17,7 +17,9 @@
 export { configServiceRef } from './configServiceRef';
 export { httpRouterServiceRef } from './httpRouterServiceRef';
 export type { HttpRouterService } from './httpRouterServiceRef';
-export { loggerServiceRef } from './loggerServiceRef';
+export { pluginMetadataServiceRef } from './pluginMetadataServiceRef';
+export type { PluginMetadata } from './pluginMetadataServiceRef';
+export { rootLoggerServiceRef, loggerServiceRef } from './loggerServiceRef';
 export type { Logger } from './loggerServiceRef';
 export { urlReaderServiceRef } from './urlReaderServiceRef';
 export { cacheServiceRef } from './cacheServiceRef';

@@ -21,28 +21,28 @@ import {
 } from '@backstage/backend-plugin-api';
 import { ServiceRegistry } from './ServiceRegistry';
 
-const ref1 = createServiceRef<{ x: number; pluginId: string }>({
+const ref1 = createServiceRef<{ x: number }>({
   id: '1',
 });
 const sf1 = createServiceFactory({
   service: ref1,
   deps: {},
   factory: async () => {
-    return async pluginId => {
-      return { x: 1, pluginId };
+    return async () => {
+      return { x: 1 };
     };
   },
 });
 
-const ref2 = createServiceRef<{ x: number; pluginId: string }>({
+const ref2 = createServiceRef<{ x: number }>({
   id: '2',
 });
 const sf2 = createServiceFactory({
   service: ref2,
   deps: {},
   factory: async () => {
-    return async pluginId => {
-      return { x: 2, pluginId };
+    return async () => {
+      return { x: 2 };
     };
   },
 });
@@ -50,39 +50,39 @@ const sf2b = createServiceFactory({
   service: ref2,
   deps: {},
   factory: async () => {
-    return async pluginId => {
-      return { x: 22, pluginId };
+    return async () => {
+      return { x: 22 };
     };
   },
 });
 
-const refDefault1 = createServiceRef<{ x: number; pluginId: string }>({
+const refDefault1 = createServiceRef<{ x: number }>({
   id: '1',
   defaultFactory: async service =>
     createServiceFactory({
       service,
       deps: {},
-      factory: async () => async pluginId => ({ x: 10, pluginId }),
+      factory: async () => async () => ({ x: 10 }),
     }),
 });
 
-const refDefault2a = createServiceRef<{ x: number; pluginId: string }>({
+const refDefault2a = createServiceRef<{ x: number }>({
   id: '2a',
   defaultFactory: async service =>
     createServiceFactory({
       service,
       deps: {},
-      factory: async () => async pluginId => ({ x: 20, pluginId }),
+      factory: async () => async () => ({ x: 20 }),
     }),
 });
 
-const refDefault2b = createServiceRef<{ x: number; pluginId: string }>({
+const refDefault2b = createServiceRef<{ x: number }>({
   id: '2b',
   defaultFactory: async service =>
     createServiceFactory({
       service,
       deps: {},
-      factory: async () => async pluginId => ({ x: 220, pluginId }),
+      factory: async () => async () => ({ x: 220 }),
     }),
 });
 
@@ -94,7 +94,7 @@ describe('ServiceRegistry', () => {
 
   it('should return a factory for a registered ref', async () => {
     const registry = new ServiceRegistry([sf1]);
-    const factory = registry.get(ref1)!;
+    const factory = registry.get(ref1, 'catalog')!;
     expect(factory).toEqual(expect.any(Function));
     await expect(factory('catalog')).resolves.toEqual({
       x: 1,
@@ -195,8 +195,8 @@ describe('ServiceRegistry', () => {
   });
 
   it('should not call factory functions more than once', async () => {
-    const innerFactory = jest.fn(async (pluginId: string) => {
-      return { x: 1, pluginId };
+    const innerFactory = jest.fn(async () => {
+      return { x: 1 };
     });
     const factory = jest.fn(async () => innerFactory);
     const myFactory = createServiceFactory({
@@ -248,7 +248,7 @@ describe('ServiceRegistry', () => {
       service: refA,
       deps: { b: refB },
       async factory({ b }) {
-        return async pluginId => b(pluginId);
+        return async () => b();
       },
     });
 

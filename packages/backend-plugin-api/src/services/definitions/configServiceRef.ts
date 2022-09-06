@@ -22,4 +22,5 @@ import { createServiceRef } from '../system/types';
  */
 export const configServiceRef = createServiceRef<Config>({
   id: 'core.config',
+  scope: 'root',
 });

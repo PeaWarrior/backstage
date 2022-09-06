@@ -14,25 +14,18 @@
  * limitations under the License.
  */
 
-import { loadBackendConfig } from '@backstage/backend-common';
-import {
-  configServiceRef,
-  createServiceFactory,
-  loggerToWinstonLogger,
-  rootLoggerServiceRef,
-} from '@backstage/backend-plugin-api';
+import { createServiceRef } from '../system/types';
 
-/** @public */
-export const configFactory = createServiceFactory({
-  service: configServiceRef,
-  deps: {
-    rootLogger: rootLoggerServiceRef,
-  },
-  factory: async ({ rootLogger }) => {
-    const config = await loadBackendConfig({
-      argv: process.argv,
-      logger: loggerToWinstonLogger(rootLogger),
-    });
-    return config;
-  },
+/**
+ * @public
+ */
+export interface PluginMetadata {
+  getId(): string;
+}
+
+/**
+ * @public
+ */
+export const pluginMetadataServiceRef = createServiceRef<PluginMetadata>({
+  id: 'core.plugin-metadata',
 });
