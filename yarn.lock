@@ -6025,9 +6025,9 @@
     "@react-hookz/deep-equal" "^1.0.3"
 
 "@rjsf/core@^5.0.0-beta.2":
-  version "5.0.0-beta.2"
-  resolved "https://registry.npmjs.org/@rjsf/core/-/core-5.0.0-beta.2.tgz#3f25369cb06ab4523b8948343974ec0180f8f357"
-  integrity sha512-PsFrOmMoWBwnSb3pUadx+xUw5PAWrjSPhczhnoJ0Z9HN4NHCaY6ZBDfAnpSi8IH1PR21YpG118ofke51h9Boag==
+  version "5.0.0-beta.4"
+  resolved "https://registry.npmjs.org/@rjsf/core/-/core-5.0.0-beta.4.tgz#c2271ed4d174e6062f89458a0fdae48bbb2ae145"
+  integrity sha512-x5mc1wORugXcLd4CrydJeXUy2CPQHDDohWiLPVwOygqHuM4qAwEHYioJAbd3G1Y8zOLIJVS1LdBCt/dggDWPmQ==
   dependencies:
     lodash "^4.17.15"
     lodash-es "^4.17.15"
@@ -6035,14 +6035,14 @@
     prop-types "^15.7.2"
 
 "@rjsf/material-ui@^5.0.0-beta.2":
-  version "5.0.0-beta.2"
-  resolved "https://registry.npmjs.org/@rjsf/material-ui/-/material-ui-5.0.0-beta.2.tgz#9459afa8f7840d27c01579b390d53c688385b598"
-  integrity sha512-w9O4v82gmndm3OnQnS1dIDKH5p2pnvBV5csyYd/WL5mOAeoZMSSzACrf6rPGyT+MLRsvo6tEnS4vRqGuGFoNHw==
+  version "5.0.0-beta.4"
+  resolved "https://registry.npmjs.org/@rjsf/material-ui/-/material-ui-5.0.0-beta.4.tgz#8b2904489d0480be6b18860b0bb37b397c13f0c6"
+  integrity sha512-mp4mD4XNSIEOfJ6ci4B9aHjGvwf/ErqpA/G6GJM768IWr3Xbe9uEUBehFfy1GlpUoRH/hzT1fHE0EYAuZMkdsQ==
 
 "@rjsf/utils@^5.0.0-beta.2":
-  version "5.0.0-beta.2"
-  resolved "https://registry.npmjs.org/@rjsf/utils/-/utils-5.0.0-beta.2.tgz#4a6e6e0d931dbd969fda77c3c052d33a2567425a"
-  integrity sha512-ulUJRuksazVJ0NzuKQ1DvTN0SI/yEQsuufacrWhsNi3VG8bP9hb+7Y6tVO3T2WIayssvar5qpHHLeYND6LXoIQ==
+  version "5.0.0-beta.4"
+  resolved "https://registry.npmjs.org/@rjsf/utils/-/utils-5.0.0-beta.4.tgz#7c281a00aef3be9c5e903ed1ebdb8cee47bc89a6"
+  integrity sha512-TPQk68fZkkUh60bUmcJF/M0MkkqtTf43pLtg5RVwxhoGU0eVVQyTXg1fVJjzuT32Y5/CZIvY4C0VVTeOUhcbMw==
   dependencies:
     json-schema-merge-allof "^0.8.1"
     jsonpointer "^5.0.1"
@@ -6051,11 +6051,10 @@
     react-is "^18.2.0"
 
 "@rjsf/validator-ajv6@^5.0.0-beta.2":
-  version "5.0.0-beta.2"
-  resolved "https://registry.npmjs.org/@rjsf/validator-ajv6/-/validator-ajv6-5.0.0-beta.2.tgz#7b0f5995ea336ac528d43b436bce8073728fa515"
-  integrity sha512-QgkgTS/C2Z4Nr6lol1noocLrNBMbzKOj35uJ2EaWntopNXOKLZ2xeU3vaVDc4I59lh2wM+hmzFdMf39bTnRmzg==
+  version "5.0.0-beta.4"
+  resolved "https://registry.npmjs.org/@rjsf/validator-ajv6/-/validator-ajv6-5.0.0-beta.4.tgz#05ddd0ce30c19d0fc5f1f37e590977ea36ebba8f"
+  integrity sha512-La39LxbxmO1q+KsUbhEPhoJM+Lti877hBjseNZrxHUpVb2TwMnOjTBklwiItew5JPk0IJfTBLzmDAXzuaogC+w==
   dependencies:
-    "@rjsf/utils" "^5.0.0-beta.2"
     ajv "^6.7.0"
     lodash "^4.17.15"
     lodash-es "^4.17.15"
